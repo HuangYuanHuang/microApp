@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar no-border-top>
+        <button ion-button menuToggle>       
+              <ion-icon name="menu"></ion-icon>        
+            </button>
+        <ion-title>用户登录</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="margin-top:100px">
+    <form [formGroup]="loginForm" >
+        <ion-item>
+            <ion-label stacked>用户名</ion-label>
+            <ion-input type="text" formControlName="username"></ion-input>
+        </ion-item>
+        <p *ngIf="!loginForm.controls.username.valid && loginForm.controls.username.touched" color="danger">用户名不能为空.</p>
+     
+
+        <ion-item>
+            <ion-label stacked>密码</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <button padding ion-button full (click)="login(loginForm.value)" [disabled]="!loginForm.valid">登录</button>
+      
+       
+    </form>
+</ion-content>
